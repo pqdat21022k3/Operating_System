@@ -19,7 +19,7 @@ const string EXIT_COMMAND = "exit"; //
 string currentDirectory = "";
 vector<string> history;
 HANDLE hForeProcess;
-
+//---------------------------------------
 void runable(string command)
 //Switch case lệnh nào => Chạy
 {
