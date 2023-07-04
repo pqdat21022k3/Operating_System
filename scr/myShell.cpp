@@ -70,7 +70,7 @@ void runable(string command)
 
     else if (command.compare("dir") == 0)
     {
-        listOfCurrent();
+        listOfCurrent();//system("dir")
     }
 
     else if (command.compare("date") == 0){
@@ -251,12 +251,14 @@ int main()
 {
     WELCOME(); // message
     string command;
-    char *buffer1 = _getcwd(NULL, 0);
+    char *buffer1 = _getcwd(NULL, 0);// get current working directory
     int i = 0;
-        while(buffer1[i] != '\0') {
-            currentDirectory += buffer1[i];
-            i++;
-        }
+    
+    while(buffer1[i] != '\0') {
+        currentDirectory += buffer1[i];
+        i++;
+    }
+    
     while (true)
     {
     	char *buffer = _getcwd(NULL, 0); //Địa chỉ nơi mình đang ở
@@ -265,17 +267,16 @@ int main()
    if (getcwd(cwd, sizeof(cwd)) != NULL) {
        printf("Current working dir: %s\n", cwd);
        */
-    	printf("%s", buffer);
-        cout << ">";
+    	printf("%s", buffer); cout << ">";
         getline(cin, command);
         trim(command);
+        
         if (command == EXIT_COMMAND) // exit
         {
             GOODBYE(); //message
             printf("Killing all processes...\n");
             kill_All();
-            this_thread::sleep_for(chrono::milliseconds(2000)); // Đợi 2s để kết thúc chương trình
-            break;
+            this_thread::sleep_for(chrono::milliseconds(2000)); // tam dung thuc thi luong hien tai trong 2s
         }
         else
         {

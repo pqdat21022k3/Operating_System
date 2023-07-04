@@ -68,11 +68,10 @@ void print(const string &s)
     cout << s;
 }
 
-void help()
-{
+void help(){
     // Display all commands
 
-	printf("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+	printf("-----------------------------------------------------------------------------------------------------------------------------------------------\n");
 	cout << "For more information on a specific command, type help command-name\n";
     cout.width(20);
     cout << left << "1.  help"
@@ -145,11 +144,10 @@ void help()
     cout.width(20);
     cout << left << "23. exit"
          << "Exit process\n";
-    printf("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------------\n");
 }
 
-void kill(string s)
-{
+void kill(string s){
     //Có id của tiến trình đấy -> kill bằng id
     int id = atoi(s.c_str()); 
 
@@ -182,9 +180,7 @@ void kill(string s)
     }
 }
 
-void kill_All()
-//Tắt hết tiến trình 
-{
+void kill_All(){
     for (int i = 1; i <= n; ++i)
     {
         TerminateProcess(pi[i].hProcess, 0);
@@ -375,12 +371,12 @@ void listOfCurrent()
     // Get the current working directory:
 
     if ((buffer = _getcwd(NULL, 0)) == NULL) //Nếu không có địa chỉ
-        perror("_getcwd error"); //In một thông điệp mô tả lỗi
+        perror("_getcwd error"); //In ra ten loi
     else
     {
 //        printf("%s \n", buffer);
     }
-    if (_chdir(buffer)) 
+    if (_chdir(buffer)) // Thay doi thu muc lam viec hien tai
     {
         switch (errno)
         {
@@ -407,7 +403,7 @@ void list1()
     // List những cái tiến trình đang hoạt động
 
     printf("\n");
-	printf("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+	printf("-----------------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("| Numbers            IdProcess                hProcess               Status                      Name   \n");
     for (int i = 1; i <= n; ++i)
     {
@@ -434,7 +430,7 @@ void list1()
         printf("|   %-19d%-26d%-20p%s          %s\n", i, pi[i].dwProcessId, pi[i].hProcess, a, cString[i]);
         }
     }
-    printf("------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    printf("-----------------------------------------------------------------------------------------------------------------------------------------------\n");
     printf("\n");
 }
 
